@@ -6,8 +6,13 @@ int main()
 {
 	int i,n,y=0;
 	char a[x];
-	gets(a);
-	n=strlen(a);
+	do
+	{
+		fflush(stdin);
+		gets(a);
+		n=strlen(a);
+	}
+	while(n>x-1);
 	char b[n];
 	for(i=0;i<n;i++)
 	    {
@@ -24,10 +29,9 @@ int main()
 	    	   }
 	    }
 	if(b[y-1]==' ')
-	   	b[y-1]=NULL;
+	   		b[y-1]='\0';
 	strupr(b);
 	puts(b);
 	printf("%d", strlen(b));
 	return 0;	
 }
-

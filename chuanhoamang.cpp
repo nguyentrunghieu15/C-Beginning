@@ -6,14 +6,9 @@ int main()
 {
 	int i,n,y=0;
 	char a[x];
-	do
-	{
-		fflush(stdin);
-		gets(a);
-		n=strlen(a);
-	}
-	while(n>x-1);
-	char b[n];
+    gets(a);
+    n=strlen(a);
+	char b[n+1];
 	for(i=0;i<n;i++)
 	    {
 	    	if(a[i]!=' '&&a[i+1]!=' ')

@@ -47,14 +47,13 @@ void tachten(const char hoten[], char ten1[])
 	i=n-1;
 	while(hoten[i]!=' ')
 	    {
-	       i--;
-	    }
-	for(i=i+1;i<n;i++)
-	    {
-	    	ten1[y]=hoten[i];
-	    	y++;
+	       ten1[y]=hoten[i];
+	       y++;
+		   i--;
 	    }
 	ten1[y]='\0';
+	strrev(ten1);
+	strupr(ten1);
 }
 int main()
 {
@@ -73,6 +72,6 @@ int main()
 		  printf("\nsdt khong hop le\n");
 	}
 	while(kiemtrasdt(sdt)==0);
-	printf("Xin cam on ban %s ,SDT cua ban da duoc them vao he thong", ten);
+	printf("Xin cam on ban %s ,SDT: %s cua ban da duoc them vao he thong", ten,sdt);
 	return 0;
 }

@@ -63,13 +63,14 @@ int main()
 	printf("Nhap ho va ten: ");
 	gets(ht);
 	chuanhoaxau(ht);
+	puts(ht);
 	tachten(ht,ten);
 	do
 	{
 		printf("nhap sdt: ");
 		gets(sdt);
 		if(kiemtrasdt(sdt)==0)
-		  printf("\nsdt khong hop le\n");
+		  printf("sdt khong hop le\n");
 	}
 	while(kiemtrasdt(sdt)==0);
 	printf("Xin cam on ban %s ,SDT: %s cua ban da duoc them vao he thong", ten,sdt);

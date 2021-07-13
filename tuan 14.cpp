@@ -48,7 +48,7 @@ void inDanhSachHienTai (const SV * ds, int size)
   for (int i = 0; i < size; i++)
     {
       printf ("%20s\t%10d\t%15s\t", ds[i].hoten, ds[i].shsv, ds[i].dienthoai);
-      if (ds[i].noiohientai == 0)
+      if (ds[i].noiohientai =='0')
 	printf ("Tinh Khac\n");
 	else
 	printf ("HN\n");

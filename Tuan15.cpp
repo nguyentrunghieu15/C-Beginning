@@ -16,7 +16,7 @@ int songuoibiloai(float x[], int n, int a[])
 	    	   t=0;
 	    }
 
-//     while(i<n-1)                              (day la cach lam dai chua toi uu)
+//     while(i<n-1)                             // (day la cach lam dai chua toi uu)
 //        {
 //        	t=0;j=0;
 //        	while(t<2 && i<n-1)
@@ -31,9 +31,9 @@ int songuoibiloai(float x[], int n, int a[])
 //        	   sobiloai=+(j-1);
 //        }
    j=sobiloai-1;
-   if(n-sobiloai>10)
+   if(n-sobiloai>20)
    {
-      t=n-10;
+      t=n-20;
 	  if(sobiloai==0)
           for(i=n;i>=1;i--)
               {

@@ -71,18 +71,18 @@ void doc3so(char x[])
 }
 void chuanhoa()
 {
-	int n,j,i;
+	int n,i;
 	n=strlen(s);
 	for(i=0;i<n;i++)
 	    {
 	    	if(s[i]!='0')
 	    	   {
 	    	   	t=1;
-	    	   	char a[n-i];
+	    	   	char a[100];
 	    	   	int c=0;
-	    	   	for(j=i;j<n;j++)
+	    	   	for(;i<n;i++)
 	    	   	    {
-	    	   	    	a[c]=s[j];
+	    	   	    	a[c]=s[i];
 	    	   	    	c++;
 	    	   	    }
 	    	   	a[c]='\0';
@@ -95,6 +95,7 @@ int main()
 {
 	printf("Nhap so tien ban can doc:");
 	do{
+		fflush(stdin);
 		gets(s);
 		if(check()==0)
 		    printf("\nNhap lai:");

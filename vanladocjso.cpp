@@ -123,13 +123,20 @@ int main()
 
 	  	       }
 	  	       a[i][t]='\0';
+	  	       if(i==0)
+	  	          printf("%s",a[i]);
+	  	        else
+	  	            printf(".%s",a[i]);
 	       }
 	    n=n/3;
+	    printf("\n");
       }
       else
       {
       	for(int i=0;i<n%3;i++)
       	    a[0][i]=s[i];
+      	    a[0][n%3]='\0';
+      	    printf("%s",a[0]);
 		int j=n%3;
 		for(int i=1;i<n/3+1;i++)
 	  	   {
@@ -143,8 +150,10 @@ int main()
 
 	  	       }
 	  	       a[i][t]='\0';
+	  	       printf(".%s",a[i]);
 	       }
 	    n=n/3+1;
+	    printf("\n");
       }
       t=n;
       	for(int i=0;i<n;i++)

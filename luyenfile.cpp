@@ -11,7 +11,7 @@ typedef struct sv
 void nhapthongtin(sv bk[],int n)
 {
 	int i;
-	for(i=0;i<=n;i++);
+	for(i=0;i<n;i++)
 	{
 		printf("Nhap ten sinh vien thu %d :",i+1);
 		fflush(stdin);
@@ -32,7 +32,14 @@ int main()
 	scanf("%d", &n);
 	sv bk[n];
 	nhapthongtin(bk,n);
-	for(i=0;i<n;i++)
-	    printf("%20s %20s %20s\n",bk[i].hoten, bk[i].birth, bk[i].que);
+	FILE * sinhvien;
+	sinhvien= fopen("C:\\Users\\Admin\\Documents\\t.txt","wt");
+	if(sinhvien==NULL)
+	   printf("ERROR");
+	else
+	  for(i=0;i<n;i++)
+	     fprintf(sinhvien,"%-20s %20s %20s\n",bk[i].hoten,bk[i].birth,bk[i].que);
+	
+	fclose(sinhvien);
 	return 0;
 }

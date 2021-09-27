@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include<conio.h>
 #define y 100
 
 int check(char x[])
@@ -46,5 +47,6 @@ int main()
 	 	  printf("ERROR");
 	 	
 	 }
+	getch();
 	return 0;
 }

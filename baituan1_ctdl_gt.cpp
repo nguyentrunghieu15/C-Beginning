@@ -134,9 +134,9 @@ void quy_hoach_dong(int a[],int n)
 	}
 //	printf("Khoi luong day con lon nhat la:%d\n",si);
 }
-void khoi_tao_gt_mang_n_phantu(int a[],int n)
+void khoi_tao_gt_mang_n_phantu(int a[],int n) // tao mang n phan tu ngau nhien
 {
 	srand((int)time(0));
     for(int i=0 ; i<n ;i++)
-        a[i] = rand()*(rand()%2==0?1:-1);
+        a[i] = rand()*(rand()%2==0?1:-1); // quy uoc  rand()%2==0 thì a>0 ;rand()%2!=0 thì a<0
 }

@@ -26,13 +26,7 @@ struct document {
 struct document get_document(char* text) {
    struct document dcmt_convertion;
    int cout_pragraph=0,cout_sentence=0,cout_word=0,cout_char=0;
-   for (int i=0;text[i]!='\0'; i++)
-   {
-        if(text[i]=='\n')
-           cout_pragraph++;       
-   }
-   dcmt_convertion.data=(struct paragraph*)malloc(sizeof(struct paragraph)*cout_pragraph);
-   cout_pragraph=0;cout_sentence=0;cout_word=0;cout_char=0;
+   dcmt_convertion.data=(struct paragraph*)malloc(sizeof(struct paragraph)*MAX_PARAGRAPHS);
    for (int i=0;text[i]!='\0'; i++)
    {
        if(text[i]=='.')
@@ -59,6 +53,7 @@ struct document get_document(char* text) {
          {
              cout_pragraph++;
              cout_sentence=0;
+             cout_word=0;
          }
    }
     cout_pragraph=0;cout_sentence=0;cout_word=0;cout_char=0;
@@ -68,13 +63,13 @@ struct document get_document(char* text) {
            cout_char++;
          if(text[i]==' ')
          {
-             dcmt_convertion.data[cout_pragraph].data[cout_sentence].data[cout_word].data=(char*)malloc(sizeof(char)*(cout_char+1));
+             dcmt_convertion.data[cout_pragraph].data[cout_sentence].data[cout_word].data=(char*)malloc(sizeof(char)*(cout_char+2));
              cout_word++;
              cout_char=0;
          }
          if(text[i]=='.')
          {
-              dcmt_convertion.data[cout_pragraph].data[cout_sentence].data[cout_word].data=(char*)malloc(sizeof(char)*(cout_char+1));
+              dcmt_convertion.data[cout_pragraph].data[cout_sentence].data[cout_word].data=(char*)malloc(sizeof(char)*(cout_char+2));
              cout_word=0;
              cout_sentence++;
              cout_char=0;
@@ -110,7 +105,7 @@ struct document get_document(char* text) {
             cout_word=0;
             cout_sentence++;
         }
-        if(text[i]=='\n')
+        if(text[i]=='\n'||text[i+1]=='\0')
         {
             dcmt_convertion.data[cout_pragraph].sentence_count=cout_sentence;
             cout_char=0;
@@ -190,36 +185,34 @@ int main()
 {
     char* text = get_input_text();
     struct document Doc = get_document(text);
-    print_document(Doc);
-    
 
-//    int q;
-//    scanf("%d", &q);
-//
-//    while (q--) {
-//        int type;
-//        scanf("%d", &type);
-//
-//        if (type == 3){
-//            int k, m, n;
-//            scanf("%d %d %d", &k, &m, &n);
-//            struct word w = kth_word_in_mth_sentence_of_nth_paragraph(Doc, k, m, n);
-//            print_word(w);
-//        }
-//
-//        else if (type == 2) {
-//            int k, m;
-//            scanf("%d %d", &k, &m);
-//            struct sentence sen= kth_sentence_in_mth_paragraph(Doc, k, m);
-//            print_sentence(sen);
-//        }
-//
-//        else{
-//            int k;
-//            scanf("%d", &k);
-//            struct paragraph para = kth_paragraph(Doc, k);
-//            print_paragraph(para);
-//        }
-//        printf("\n");
-//    }     
+    int q;
+    scanf("%d", &q);
+
+    while (q--) {
+        int type;
+        scanf("%d", &type);
+
+        if (type == 3){
+            int k, m, n;
+            scanf("%d %d %d", &k, &m, &n);
+            struct word w = kth_word_in_mth_sentence_of_nth_paragraph(Doc, k, m, n);
+            print_word(w);
+        }
+
+        else if (type == 2) {
+            int k, m;
+            scanf("%d %d", &k, &m);
+            struct sentence sen= kth_sentence_in_mth_paragraph(Doc, k, m);
+            print_sentence(sen);
+        }
+
+        else{
+            int k;
+            scanf("%d", &k);
+            struct paragraph para = kth_paragraph(Doc, k);
+            print_paragraph(para);
+        }
+        printf("\n");
+    }     
 }
